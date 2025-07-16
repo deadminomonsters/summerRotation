@@ -1,0 +1,104 @@
+
+RHF Calculation
+
+
+******** <class 'pyscf.scf.hf_symm.SymAdaptedRHF'> ********
+method = SymAdaptedRHF
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-09
+SCF conv_tol_grad = None
+SCF max_cycles = 50
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /scratch/local/jobs/33101425/tmpcb9j1s66
+max_memory 4000 MB (current use 87 MB)
+Set gradient conv threshold to 3.16228e-05
+Initial guess from minao.
+init E= -232.283961582497
+HOMO (B3g) = -0.247357449064049  LUMO (B1u) = 0.039741988802032
+cycle= 1 E= -230.658611409201  delta_E= 1.63  |g|= 0.391  |ddm|= 3.32
+HOMO (B3g) = -0.352820343759654  LUMO (Au) = 0.11493443403558
+cycle= 2 E= -230.716578626528  delta_E= -0.058  |g|= 0.103  |ddm|= 0.642
+HOMO (B3g) = -0.324425250665142  LUMO (Au) = 0.142570930703788
+cycle= 3 E= -230.720791753999  delta_E= -0.00421  |g|= 0.026  |ddm|= 0.244
+HOMO (B3g) = -0.333293908930833  LUMO (Au) = 0.134491328485654
+cycle= 4 E= -230.721002953828  delta_E= -0.000211  |g|= 0.005  |ddm|= 0.0322
+HOMO (B3g) = -0.332377339967483  LUMO (Au) = 0.135096406491128
+cycle= 5 E= -230.721010442051  delta_E= -7.49e-06  |g|= 0.000734  |ddm|= 0.00549
+HOMO (B3g) = -0.332278907933562  LUMO (Au) = 0.135158703432968
+cycle= 6 E= -230.721010763482  delta_E= -3.21e-07  |g|= 0.000117  |ddm|= 0.00147
+HOMO (B3g) = -0.332255884235434  LUMO (Au) = 0.135171828633344
+cycle= 7 E= -230.721010772027  delta_E= -8.54e-09  |g|= 1.08e-05  |ddm|= 0.000251
+HOMO (B3g) = -0.332254991228425  LUMO (Au) = 0.135172036654667
+cycle= 8 E= -230.721010772092  delta_E= -6.43e-11  |g|= 1.02e-06  |ddm|= 2.59e-05
+HOMO (B3g) = -0.332254819987928  LUMO (Au) = 0.135172199920009
+Extra cycle  E= -230.721010772092  delta_E= -3.41e-13  |g|= 3.24e-07  |ddm|= 3.11e-06
+converged SCF energy = -230.721010772092
+
+RHF w/ Newton Optimizer
+
+
+
+
+******** <class 'pyscf.soscf.newton_ah.SecondOrderSymAdaptedRHF'> ********
+method = SecondOrderSymAdaptedRHF
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-09
+SCF conv_tol_grad = None
+SCF max_cycles = 50
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /scratch/local/jobs/33101425/tmpek0gs08j
+max_memory 4000 MB (current use 295 MB)
+******** <class 'pyscf.scf.hf_symm.SymAdaptedRHF'> Newton solver flags ********
+SCF tol = 1e-09
+conv_tol_grad = None
+max. SCF cycles = 50
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /scratch/local/jobs/33101425/tmpek0gs08j
+max_cycle_inner = 12
+max_stepsize = 0.05
+ah_start_tol = 1e+09
+ah_level_shift = 0
+ah_conv_tol = 1e-12
+ah_lindep = 1e-14
+ah_start_cycle = 1
+ah_max_cycle = 40
+ah_grad_trust_region = 2.5
+kf_interval = 4
+kf_trust_region = 5
+canonicalization = True
+max_memory 4000 MB (current use 295 MB)
+Set conv_tol_grad to 3.16228e-05
+Initial guess from minao.
+HOMO (B3g) = -0.247357449064053  LUMO (B1u) = 0.0397419888020328
+Initial guess E= -230.658611409201  |g|= 0.390736
+macro= 0  E= -230.72101056113  delta_E= -0.0623992  |g|= 0.00998582  3 KF 9 JK
+macro= 1  E= -230.721010772089  delta_E= -2.10959e-07  |g|= 2.40856e-05  2 KF 6 JK
+macro= 2  E= -230.72101077209  delta_E= -6.82121e-13  |g|= 2.7443e-06  1 KF 2 JK
+Canonicalize SCF orbitals
+macro X = 3  E=-230.72101077209  |g|= 2.7443e-06  total 7 KF 21 JK
+converged SCF energy = -230.72101077209
+
+RHF w/ Density Fitting
+converged SCF energy = -230.720582760658
+
+ROHF Calculation
+converged SCF energy = -230.721010772092
+
+UHF Calculation
+converged SCF energy = -230.721010772093  <S^2> = 6.2883032e-13  2S+1 = 1
+slurmstepd: error: *** JOB 33101425 ON midway3-0155 CANCELLED AT 2025-07-16T13:27:31 DUE TO TIME LIMIT ***
