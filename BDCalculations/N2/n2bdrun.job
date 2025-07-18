@@ -11,4 +11,4 @@
 
 source ~/summerRotation/bin/activate
 
-python3 bondDis.py
+python3 N2BondDis.py
