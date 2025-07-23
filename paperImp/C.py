@@ -1,33 +1,46 @@
 from pyscf import gto, scf, mcscf
-
-ncas = 4      # Number of active orbitals
-nelecas = 2   # Number of active electrons
-
-
-
-gs = gto.Mole()
-gs.atom = 'C 0 0 0'
-gs.basis = 'ccpvtz'
-gs.charge = 0
-gs.spin = 2
-gs.build()
-mf = scf.RHF(gs).run()
-mc = mcscf.CASCI(mf, ncas, nelecas)
-ge = mc.kernel()[0]
+from pyscf.csf_fci import csf_solver
+ncas = 4     # Number of active orbitals
+nelecas = 4   # Number of active electrons
+mol = gto.Mole()
+mol.atom = 'C 0 0 0'
+mol.basis = 'ccpvtz'
+mol.charge = 0
+mol.spin = 0 
+mol.verbose = 4
+mol.max_memory = 40000
+mol.build()
+mf = scf.RHF(mol).run()
 
 
 
-es = gto.Mole()
-es.atom = 'C 0 0 0'
-es.basis = 'ccpvtz'
-charge = 0
-es.spin = 0
-es.build()
-mf2 = scf.RHF(es).run()
-mc2 = mcscf.CASCI(mf2, ncas, nelecas)
-ee = mc2.kernel()[0]
 
-exe = (ee-ge) * 27.2114
+#Singlet Excited State
+solvers = csf_solver(mol, smult=1)
+solvers.nroots = 3
+# Weights
+import numpy as np
+weights = np.ones(solvers.nroots) / solvers.nroots
+#Run CASSCF
+mc = mcscf.CASSCF(mf, ncas, nelecas)
+mc = mcscf.state_average_mix_(mc, [solvers,], weights)
+mc.kernel()
+es = mc.e_states[0]
 
-with open('energies.txt', 'w') as fout:
-    fout.write(f'C:    {exe}')
+#Triplet Ground State
+# Define the CAS solver
+solvers = csf_solver(mol, smult=3)
+solvers.nroots = 3
+# Weights
+import numpy as np
+weights = np.ones(solvers.nroots) / solvers.nroots
+#Run CASSCF
+mc = mcscf.CASSCF(mf, ncas, nelecas)
+mc = mcscf.state_average_mix_(mc, [solvers,], weights)
+mc.kernel()
+gs = mc.e_states[0]
+
+exe = (es-gs) * 27.2114
+
+with open('energies.txt', 'a') as fout:
+    fout.write(f'C:    {exe}\n')

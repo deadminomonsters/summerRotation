@@ -1,0 +1,18 @@
+converged SCF energy = -1.73362063040916
+CASSCF energy = -2.00364570613661
+CASCI E = -2.00364570613661  E(CI) = -3.35425663152572  S^2 = 0.0000000
+CASCI state-averaged energy = -2.00364570613661
+CASCI energy for each state
+  State 0 weight 0.5  E = -2.01997392379392 S^2 = 0.0000000
+  State 1 weight 0.5  E = -1.98731748847931 S^2 = 0.0000000
+CASSCF energy = -1.99637038910789
+CASCI E = -1.99637038910789  E(CI) = -3.34698131449700  S^2 = 2.0000000
+CASCI state-averaged energy = -1.99637038910789
+CASCI energy for each state
+  State 0 weight 0.5  E = -2.00692862764309 S^2 = 2.0000000
+  State 1 weight 0.5  E = -1.9858121505727 S^2 = 2.0000000
+CASSCF energy = -1.96792392763648
+CASCI E = -1.96792392763648  E(CI) = -3.31853485302559  S^2 = 6.0000000
+CASCI state-averaged energy = -1.96792392763648
+CASCI energy for each state
+  State 0 weight 1  E = -1.96792392763648 S^2 = 6.0000000
