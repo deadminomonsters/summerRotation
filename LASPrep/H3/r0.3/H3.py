@@ -9,7 +9,7 @@ def run(b):
 
 
     mol = gto.M(
-        atom = f'H 0 0 0; H 0 {(3 * b / 4)**(1/2)} {b/2}; H 0 0 {b}',
+        atom = f'H 0 0 0; H 0 {b * (3 / 4)**(1/2)} {b/2}; H 0 0 {b}',
         basis = 'ccpvdz',
         charge = 0,
         spin = 1,
@@ -46,6 +46,12 @@ def run(b):
     tri = mcscf.state_average_mix_(tri, [solvers,], weights)
     tri.kernel(mo_coeff)
     tri_e = tri.e_states[0]
+
+    from pyscf.tools import molden
+
+    # Write cube files for each active orbital
+    molden.from_mo(mol, f"triangle_0.3.molden", sing.mo_coeff[:, sing.ncore:sing.ncore+sing.ncas])
+
 
     return min(sing_e, tri_e)
 

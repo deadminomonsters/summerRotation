@@ -59,6 +59,13 @@ def run(b):
         quad_e = quad.e_states
 
 
+        print(sing_e[0], tri_e[0], quad_e[0])
+
+        from pyscf.tools import molden
+
+        # Write cube files for each active orbital
+        molden.from_mo(mol, f"square_0.3.molden", tri.mo_coeff[:, tri.ncore:tri.ncore+tri.ncas])
+
         return min(sing_e[0], tri_e[0], quad_e[0])
 
 r = 0.3

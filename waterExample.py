@@ -32,9 +32,8 @@ mo_active = mo[:, mc.ncore:mc.ncore+mc.ncas]
 print("Active orbitals (MO coefficients):")
 print(mo_active)
 
-from pyscf.tools import cubegen
+from pyscf.tools import molden
 
 # Write cube files for each active orbital
-for i in range(mc.ncas):
-    cubegen.orbital(mol, f"casscf_orbital_{i+1}.cube", mc.mo_coeff[:, mc.ncore + i])
+molden.from_mo(mol, f"test.molden", mc.mo_coeff[:, mc.ncore:mc.ncore+mc.ncas])
 
